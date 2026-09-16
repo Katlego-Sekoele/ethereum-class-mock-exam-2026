@@ -19,7 +19,7 @@ contract PracticeToken is ERC20 {
         ERC20(name_, symbol_, 18)
     {
         issuer = msg.sender;
-
+        _mint(issuer, startingSupply_);
         // TODO 1.1 --------------------------------------------------------
         // Create the whole starting supply and put it in the issuer's hands.
         //
