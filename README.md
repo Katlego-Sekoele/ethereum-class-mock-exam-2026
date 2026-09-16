@@ -147,8 +147,8 @@ Deployment two, your token B: same again, with `Cafeteria Points`, `CAFE`, and t
 recover if you lose them. (Replace the underscores in the table below with your addresses, the 0x is just a hint at what the address should look like, so remove it too before you paste.)
 
 ```
-Token A address 0xd9145CCE52D386f254917e481eB44e9943F39138
-Token B address 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8
+Token A address 0xD7ACd2a9FD159E69Bb102A1ca21C9a3e3A5F771B
+Token B address 0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47
 ```
 
 ---
@@ -196,11 +196,11 @@ one becomes `currency0`. Your code picks the right one in `TODO 2.1`.
 **Record these:**
 
 ```
-alphaIsCurrency0        ______________________________________
-poolId                0x ______________________________________
-startingSqrtPriceX96    ______________________________________
-tick after openPool     ______________________________________
-Task2Pool address     0x ______________________________________
+alphaIsCurrency0        false
+poolId                0x3506df81c3c8b3f3179c57703d39a08a7b6def1a5347d9875e43d1c3603d0833
+startingSqrtPriceX96    19807040628566084398385987584
+tick after openPool     -27728
+Task2Pool address     0xDA0bab807633f07f013f94DD0E6A4F96F8742B53
 ```
 
 *Remember to get the address of the deployed contract, click the copy icon next to the address in the **Deployed Contracts** section.*
