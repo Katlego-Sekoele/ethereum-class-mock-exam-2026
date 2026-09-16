@@ -26,6 +26,8 @@ than on finding buttons.
 
 ---
 
+
+
 ## Setup
 
 **Step 1.** Open [remix.ethereum.org](https://remix.ethereum.org).
@@ -58,6 +60,8 @@ PoolSwapTest deployed at 0xf8e81D47203A594245E36C48e151709F0C19fBe8  (gas limit 
 problems are not what is being examined, and there is no time to solve them on the day.
 
 ---
+
+
 
 ## Your parameter sheet
 
@@ -111,6 +115,8 @@ whole tokens.
 
 ---
 
+
+
 ## Task 1: mint your tokens (10 marks in the exam)
 
 **Open** `contracts/Task1Token.sol`. Complete `TODO 1.1`.
@@ -123,11 +129,13 @@ whole tokens.
 **Fill in the three fields for each deployment:**
 Deployment one, your token A:
 
-| Field | What to type |
-| --- | --- |
-| `name_` | `Tutorial Tokens` |
-| `symbol_` | `TUT` |
+
+| Field             | What to type                |
+| ----------------- | --------------------------- |
+| `name_`           | `Tutorial Tokens`           |
+| `symbol_`         | `TUT`                       |
 | `startingSupply_` | `2000000000000000000000000` |
+
 
 Press **Deploy**. The contract appears under **Deployed Contracts** at the bottom. Click the copy
 icon next to it to get its address.
@@ -139,11 +147,13 @@ Deployment two, your token B: same again, with `Cafeteria Points`, `CAFE`, and t
 recover if you lose them. (Replace the underscores in the table below with your addresses, the 0x is just a hint at what the address should look like, so remove it too before you paste.)
 
 ```
-Token A address 0x ______________________________________
-Token B address 0x ______________________________________
+Token A address 0xd9145CCE52D386f254917e481eB44e9943F39138
+Token B address 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8
 ```
 
 ---
+
+
 
 ## Task 2: open the pool (20 marks in the exam)
 
@@ -151,20 +161,22 @@ Token B address 0x ______________________________________
 
 **Compile it.** Click the **Compile** button (blue button on the top left). Fix anything red before moving on.
 
-**Deploy `Task2Pool` once.** Click the **Deploy and Run transactions button** as we did before.
+**Deploy** `Task2Pool` **once.** Click the **Deploy and Run transactions button** as we did before.
 In the **Contract** dropdown choose `Task2Pool` and click **Deploy**. (If it says `Task2Pool.sol` instead, click the *Compile* button next to it, then follow the next steps.)
 
 **Fill in the seven fields for this deployment:**
 
-| Field | What to type |
-| --- | --- |
-| `_poolManager` | Pool manager address from Step 5 |
-| `_tokenA` | Your token A address |
-| `_tokenB` | Your token B address |
-| `_fee` | `10000` |
-| `_tickSpacing` | `200` |
+
+| Field                     | What to type                     |
+| ------------------------- | -------------------------------- |
+| `_poolManager`            | Pool manager address from Step 5 |
+| `_tokenA`                 | Your token A address             |
+| `_tokenB`                 | Your token B address             |
+| `_fee`                    | `10000`                          |
+| `_tickSpacing`            | `200`                            |
 | `_sqrtPriceIfTokenALower` | `316912650057057350374175801344` |
-| `_sqrtPriceIfTokenBLower` | `19807040628566084398385987584` |
+| `_sqrtPriceIfTokenBLower` | `19807040628566084398385987584`  |
+
 
 Press **Deploy**.
 
@@ -177,7 +189,7 @@ one becomes `currency0`. Your code picks the right one in `TODO 2.1`.
 1. `alphaIsCurrency0` (blue, free). Note whether it says true or false.
 2. `poolId` (blue, free). Write it down.
 3. `startingSqrtPriceX96` (blue, free). It returns whichever of your two long numbers
-   applies. Write it down.
+  applies. Write it down.
 4. `openPool` (orange, costs gas). This is the one that actually opens the pool.
 5. `currentSlot0` (blue, free). It returns two numbers. The second is the tick.
 
@@ -198,25 +210,29 @@ numbers for the sort order you actually got. Everything after this depends on it
 
 ---
 
+
+
 ## Task 3: add liquidity (20 marks in the exam)
 
 **Open** `contracts/Task3Liquidity.sol`. Complete `TODO 3.1`, `TODO 3.2`, and `TODO 3.3`.
 
 **Compile it.** Click the **Compile** button (blue button on the top left). Fix anything red before moving on.
 
-**Deploy `Task3Liquidity` once.** Click the **Deploy and Run transactions button** as we did before.
+**Deploy** `Task3Liquidity` **once.** Click the **Deploy and Run transactions button** as we did before.
 In the **Contract** dropdown choose `Task3Liquidity` and click **Deploy**. (If it says `Task3Liquidity.sol` instead, click the *Compile* button next to it, then follow the next steps.)
 
 **Fill in the six fields for this deployment:**
 
-| Field | What to type |
-| --- | --- |
-| `_poolManager` | Pool manager address from Step 5 |
+
+| Field              | What to type                         |
+| ------------------ | ------------------------------------ |
+| `_poolManager`     | Pool manager address from Step 5     |
 | `_liquidityRouter` | Liquidity router address from Step 5 |
-| `_tokenA` | Your token A address |
-| `_tokenB` | Your token B address |
-| `_fee` | `10000`, the same value as Task 2 |
-| `_tickSpacing` | `200`, the same value as Task 2 |
+| `_tokenA`          | Your token A address                 |
+| `_tokenB`          | Your token B address                 |
+| `_fee`             | `10000`, the same value as Task 2    |
+| `_tickSpacing`     | `200`, the same value as Task 2      |
+
 
 Press **Deploy**.
 
@@ -244,7 +260,7 @@ Your live tick may well be negative, depending on which of your tokens became cu
 normal and nothing is wrong. The same method works: with spacing 200 and a live tick of -8642, you
 could use -8800 in the middle, so -12800 and -4800.
 
-**Call `addLiquidity`** with your `tickLower`, your `tickUpper`, and `50000000000000000000000`. In
+**Call** `addLiquidity` with your `tickLower`, your `tickUpper`, and `50000000000000000000000`. In
 the terminal, expand the transaction and look at **decoded output**. It gives you `amount0` and
 `amount1`, both negative because the tokens left your contract.
 
@@ -262,24 +278,28 @@ Task3 address 0x ______________________________________
 
 ---
 
+
+
 ## Task 4: predict, then swap (15 marks in the exam)
 
 **Open** `contracts/Task4Swap.sol`. Complete `TODO 4.1`, `TODO 4.2`, `TODO 4.3`, and `TODO 4.4`.
 
 **Compile it.** Click the **Compile** button (blue button on the top left). Fix anything red before moving on.
 
-**Deploy `Task4Swap` once.** Click the **Deploy and Run transactions button** as we did before. In the **Contract** dropdown choose `Task4Swap` and click **Deploy**. (If it says `Task4Swap.sol` instead, click the *Compile* button next to it, then follow the next steps.)
+**Deploy** `Task4Swap` **once.** Click the **Deploy and Run transactions button** as we did before. In the **Contract** dropdown choose `Task4Swap` and click **Deploy**. (If it says `Task4Swap.sol` instead, click the *Compile* button next to it, then follow the next steps.)
 
 **Fill in the six fields for this deployment:**
 
-| Field | What to type |
-| --- | --- |
+
+| Field          | What to type                     |
+| -------------- | -------------------------------- |
 | `_poolManager` | Pool manager address from Step 5 |
-| `_swapRouter` | Swap router address from Step 5 |
-| `_tokenA` | Your token A address |
-| `_tokenB` | Your token B address |
-| `_fee` | `10000`, same as Tasks 2 and 3 |
-| `_tickSpacing` | `200`, same as Tasks 2 and 3 |
+| `_swapRouter`  | Swap router address from Step 5  |
+| `_tokenA`      | Your token A address             |
+| `_tokenB`      | Your token B address             |
+| `_fee`         | `10000`, same as Tasks 2 and 3   |
+| `_tickSpacing` | `200`, same as Tasks 2 and 3     |
+
 
 Press **Deploy**.
 
@@ -291,18 +311,18 @@ your supply, so both contracts end up funded and your own balance ends at zero.
 back. Before you run anything, work out roughly how much you expect. Two things decide it:
 
 - which of your tokens actually became currency0, because that flips the rate between 16 and one
-  sixteenth, and the two answers are nowhere near each other
+sixteenth, and the two answers are nowhere near each other
 - the fee, which is one percent and comes off what you put in
 
 Do not guess. Check `alphaIsCurrency0`, work out which rate applies to you, take the fee off. You do
 not have to be exact, but you do need a number and a reason for it.
 
-**Call `recordPrediction`** with that number, written in the same units as everything else, so
+**Call** `recordPrediction` with that number, written in the same units as everything else, so
 18 decimals. If you expect about 3 tokens back, that is `3000000000000000000`.
 
 Your contract will not let you swap until you have recorded something.
 
-**Call `swapExactIn`** with:
+**Call** `swapExactIn` with:
 
 - `zeroForOne`: `false`, because the mock swaps currency1 into currency0
 - `amountIn`: `5000000000000000000`
@@ -329,6 +349,8 @@ each part is. The exam asks you to do exactly that in writing.
 
 ---
 
+
+
 ## Task 5: report your results (10 marks in the exam)
 
 Open `results.json` and fill in every field with the values you wrote down.
@@ -340,6 +362,8 @@ In the exam this is ten marks for what is essentially careful copying, so practi
 
 ---
 
+
+
 ## Task 6: written section (25 marks in the exam)
 
 Answer all five questions in `ANSWERS.md`. **120 words each, maximum.** Each is worth 5 marks.
@@ -348,6 +372,8 @@ Full marks need specifics from your own work: your numbers, your addresses, your
 your range.
 
 ---
+
+
 
 ## Submitting
 
@@ -375,6 +401,8 @@ Once you have all files downloaded and checked, create a zip file called `STUDEN
 
 ---
 
+
+
 ## When you have finished
 
 Do it again, then break it deliberately, because the written section has a habit of asking about
@@ -382,7 +410,7 @@ error messages:
 
 - Give `addLiquidity` a tick that is not a multiple of 200. Read the error.
 - Give it a range that sits entirely above the live tick. Read that error too, and note which of
-  your two tokens the pool would have taken.
+your two tokens the pool would have taken.
 - Try `swapExactIn` before `recordPrediction` and see what happens.
 - Deploy `Task3Liquidity` with a tick spacing of 60 instead of 200 and watch `poolId` change.
 - Work out what your pool would have done if the other token had sorted first.
@@ -390,6 +418,8 @@ error messages:
 Read each error. Make sure you can say what caused it.
 
 ---
+
+
 
 ## References & Resources
 
@@ -405,7 +435,7 @@ pool's tick spacing.
 **Compiler warnings.** The starting files produce warnings about unused variables. That is normal
 and costs you nothing. They disappear as you fill the gaps in. Only red errors matter.
 
-**Optional, `scripts/02_selfcheck.js`.** Checks the shape of your contracts and the rules they
+**Optional,** `scripts/02_selfcheck.js`**.** Checks the shape of your contracts and the rules they
 should be enforcing. Fill in the three addresses at the top, right click the file, choose **Run**.
 The exam has one of these too. It is not a mark predictor.
 
@@ -414,4 +444,3 @@ contracts beside it.
 
 **If something breaks.** Ask rather than spending twenty minutes on it. On the day, ask the
 invigilator.
-
