@@ -67,7 +67,7 @@ contract Task4Swap is ExamBase {
         // This swap must not run until a prediction has been locked in. The flag you
         // set in TODO 4.1 is the one to test. Replace the condition marked below.
 
-        require(!predictionLocked /* replace: a prediction has been locked in */, "record your prediction before you swap");
+        require(predictionLocked /* replace: a prediction has been locked in */, "record your prediction before you swap");
 
         // TODO 4.3 --------------------------------------------------------
         // In Uniswap v4, the sign of amountSpecified says which kind of swap you want.
